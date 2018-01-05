@@ -112,7 +112,10 @@
             let params = urlparse(url);
             let crawl = params.protocol === 'https:' ? https : http;
             return new Promise(async (resolve, reject) => {
-                let options = urlparse(url);
+                let options = {
+                    method: 'GET',
+                    path: url
+                };
                 // hook
                 if (this.agent_func) {
                     let user_agent = await this.agent_func();
