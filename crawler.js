@@ -3,7 +3,7 @@
  * 灵感来自https://github.com/aosabook/500lines/tree/master/crawler
  */
 
- (function(){
+(function(){
     "use strict";
 
     const assert = require('assert');
@@ -267,4 +267,4 @@
 
     module.exports = Export;
 
- })(this);
+})(this);
