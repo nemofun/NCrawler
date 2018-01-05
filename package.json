@@ -1,0 +1,25 @@
+{
+  "name": "ncrawler",
+  "version": "1.0.0",
+  "description": "300Lines Web Crawler Use Nodejs",
+  "main": "crawl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemofun/NCrawler.git"
+  },
+  "keywords": [
+    "Crawler"
+  ],
+  "author": "https://github.com/nemofun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nemofun/NCrawler/issues"
+  },
+  "homepage": "https://github.com/nemofun/NCrawler#readme",
+  "dependencies": {
+    "async": "^2.6.0"
+  }
+}
