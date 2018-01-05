@@ -130,9 +130,10 @@
                 }
                 let req = crawl.request(options, res => {
                     res.url = url;
+                    res.proxy = options.host ? {host: options.host, port: options.port} : null;
                     resolve(res);
                 });
-                req.on('error', error => reject(error));
+                req.on('error', error => reject([error, options]));
                 req.end();
             });
         }
@@ -205,8 +206,6 @@
                 }
                 if (max_redirect > 0) {
                     this.add_url(next_url, max_redirect - 1)
-                } else {
-                    console.log('redirect limit reached for ' + next_url + ' from ' + url);
                 }
             } else {
                 let links = await this.parse_links(response);
