@@ -117,16 +117,18 @@
                     path: url
                 };
                 // hook
+                if (this.proxy_func) {
+                    let proxy = await this.proxy_func();
+                    options['host'] = proxy.host;
+                    options['port'] = proxy.port;
+                } else {
+                    options = urlparse(url);
+                }
                 if (this.agent_func) {
                     let user_agent = await this.agent_func();
                     options['headers'] = {
                         'User-Agent': user_agent
                     }
-                }
-                if (this.proxy_func) {
-                    let proxy = await this.proxy_func();
-                    options['host'] = proxy.host;
-                    options['port'] = proxy.port;
                 }
                 let req = crawl.request(options, res => {
                     res.url = url;
