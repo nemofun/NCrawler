@@ -188,6 +188,7 @@
             while(tries < this.max_tries) {
                 try {
                     response = await this.request(url)
+                    if (response.statusCode >= 400) throw new Error('statusCode return ' + response.statusCode);
                     break;
                 } catch(err) {
                     if (this.error_func) {
